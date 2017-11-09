@@ -6,3 +6,7 @@ Simulation program for Conor McBride's TINY Machine.
 + Input a TINY input queue in the format "x, x, x, x..."
 + Input a TINY configuration in the format "x x x x  xxxxxxxxxxxxxxx"
 + The program should then print a trace and state how the TINY program halted.
+
+## Notes
++ This script halts after 500 operations, and assumes that the TINY program loops indefinitely
++ This can be changed by editing the main loop of the program, line 268. Set count to a desired value.
