@@ -170,19 +170,19 @@ def ADC():
 	setAction(["ADC",hexToString(memory[registry[0]+1]),"-","-"])
 	printState()
 	carry = 0
-	if (registry[3] & 0b0001) + (memory[memory[registry[0]+1]] & 0b0001) + (registry[2] & 0b0001) >= 2:
+	if (registry[3] & 0b1) + (memory[memory[registry[0]+1]] & 0b1) + (registry[2] & 0b1) >= 2:
 		carry = 1
 	else:
 		carry = 0
-	if (registry[3] & 0b0010)/2 + (memory[memory[registry[0]+1]] & 0b0010)/2 + carry >= 2:
+	if (registry[3] & 0b10)/2 + (memory[memory[registry[0]+1]] & 0b10)/2 + carry >= 2:
 		carry = 1
 	else:
 		carry = 0
-	if (registry[3] & 0b0100)/4 + (memory[memory[registry[0]+1]] & 0b0100)/4 + carry >= 2:
+	if (registry[3] & 0b100)/4 + (memory[memory[registry[0]+1]] & 0b100)/4 + carry >= 2:
 		carry = 1
 	else:
 		carry = 0
-	if (registry[3] & 0b1000)/4 + (memory[memory[registry[0]+1]] & 0b1000)/4 + carry >= 2:
+	if (registry[3] & 0b1000)/8 + (memory[memory[registry[0]+1]] & 0b1000)/8 + carry >= 2:
 		carry2 = 1
 	else:
 		carry2 = 0
@@ -265,7 +265,7 @@ for char in inputString:
 
 count = 0
 while not stop:
-	if count >=100:
+	if count >=500:
 		stop = True
 		reason = "Loops Henceforth"
 	if memory[registry[0]] == 0:
